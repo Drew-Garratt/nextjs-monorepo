@@ -1,6 +1,6 @@
 'use server';
 
-import { setupI18n } from '@/lib/i18n/utils';
+import { nextSetupI18n } from '@/lib/i18n/i18n';
 
 import { ClientProviders } from './client-providers';
 
@@ -10,7 +10,7 @@ interface ProvidersProps {
 }
 
 export async function ServerProviders({ children, lang }: ProvidersProps) {
-  const i18nSetupData = await setupI18n({ locale: lang });
+  const i18nSetupData = await nextSetupI18n({ locale: lang });
 
   return (
     <ClientProviders i18nSetupData={i18nSetupData}>{children}</ClientProviders>

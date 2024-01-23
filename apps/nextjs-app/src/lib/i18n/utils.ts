@@ -1,15 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
-import {
-  type I18n,
-  setupI18n as linguiSetupI18n,
-  type Messages,
-} from '@lingui/core';
+import type { I18n, Messages } from '@lingui/core';
 import { cache } from 'react';
 
 export async function loadCatalog(locale: string): Promise<Messages> {
   try {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-    const catalog = await import(`@lingui/loader!@/locales/${locale}.po`);
+    const catalog = await import(`@lingui/loader!../../locales/${locale}.po`);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return catalog.messages;
   } catch (e) {
@@ -29,21 +25,3 @@ export function getI18n(): I18n | undefined {
 const getLocaleCtx = cache((): { current: I18n | undefined } => {
   return { current: undefined };
 });
-
-export async function setupI18n({ locale }: { locale: string }) {
-  const catalog = await loadCatalog(locale);
-
-  const setupData = {
-    locale,
-    messages: { [locale]: catalog },
-  };
-
-  const i18n = linguiSetupI18n(setupData);
-
-  setI18n(i18n);
-
-  return {
-    locale,
-    messages: { [locale]: catalog },
-  };
-}

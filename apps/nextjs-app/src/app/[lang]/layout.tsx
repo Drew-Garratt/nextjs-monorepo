@@ -3,7 +3,6 @@ import '@/styles/globals.css';
 import type { Metadata } from 'next';
 
 import { SiteHeader } from '@/components/site-header';
-import { ThemeProvider } from '@/components/theme-provider';
 import type { Locale } from '@/config/i18n-config';
 import { siteConfig } from '@/config/site';
 import { fontSans } from '@/lib/fonts';
@@ -45,12 +44,10 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
           )}
         >
           <ServerProviders lang={params.lang}>
-            <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-              <div className="relative flex min-h-screen flex-col">
-                <SiteHeader />
-                <div className="flex-1">{children}</div>
-              </div>
-            </ThemeProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <SiteHeader />
+              <div className="flex-1">{children}</div>
+            </div>
           </ServerProviders>
         </body>
       </html>

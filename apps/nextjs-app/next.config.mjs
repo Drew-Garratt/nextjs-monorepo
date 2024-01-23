@@ -118,7 +118,7 @@ class LinguiTransRscResolver {
             const req = {
               ...request,
               request:
-                request.context.issuerLayer === 'rsc'
+                request.context.issuerLayer === ('rsc' || 'ssr')
                   ? // RSC Version without Context
                     rscTrans
                   : // Regular version
