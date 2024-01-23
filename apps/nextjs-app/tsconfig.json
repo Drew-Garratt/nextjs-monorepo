@@ -18,6 +18,7 @@
       "@/lib/*": ["./lib/*"],
       "@/types/*": ["./types/*"],
       "@/styles/*": ["./styles/*"],
+      "@/providers/*": ["./providers/*"],
       "@/components/*": ["./components/*"],
       "@/features/*": ["./features/*"],
       "@/layouts/*": ["./layouts/*"],

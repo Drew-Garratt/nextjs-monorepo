@@ -8,7 +8,7 @@ import { siteConfig } from '@/config/site';
 import { fontSans } from '@/lib/fonts';
 import { cn } from '@/lib/utils';
 
-import { ServerProviders } from './server-providers';
+import { AppProviders } from '@/providers/app-providers';
 
 export const metadata: Metadata = {
   title: {
@@ -43,12 +43,12 @@ export default function RootLayout({ children, params }: RootLayoutProps) {
             fontSans.variable
           )}
         >
-          <ServerProviders lang={params.lang}>
+          <AppProviders lang={params.lang}>
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <div className="flex-1">{children}</div>
             </div>
-          </ServerProviders>
+          </AppProviders>
         </body>
       </html>
     </>
