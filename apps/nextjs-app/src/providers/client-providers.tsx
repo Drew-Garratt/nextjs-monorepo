@@ -1,5 +1,6 @@
 'use client';
 
+import type { AllMessages } from '@lingui/core';
 import { ThemeProvider } from 'next-themes';
 
 import { LinguiProvider } from '@/lib/i18n/lingui-provider';
@@ -8,7 +9,7 @@ interface ClientProvidersProps {
   children?: React.ReactNode;
   i18nSetupData: {
     locale: string;
-    messages: Record<string, unknown>;
+    messages: AllMessages;
   };
 }
 

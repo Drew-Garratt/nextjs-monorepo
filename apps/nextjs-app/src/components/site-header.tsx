@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { Icons } from '@/components/icons';
 import { MainNav } from '@/components/main-nav';
+import { Switcher } from '@/components/switcher';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { buttonVariants } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
@@ -44,6 +45,7 @@ export function SiteHeader() {
               </div>
             </Link>
             <ThemeToggle />
+            <Switcher />
           </nav>
         </div>
       </div>

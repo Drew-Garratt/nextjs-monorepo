@@ -12,13 +12,13 @@
     "incremental": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
     "paths": {
       "@/test-utils": ["../config/tests/test-utils"],
       "@/config/*": ["./config/*"],
       "@/lib/*": ["./lib/*"],
       "@/types/*": ["./types/*"],
       "@/styles/*": ["./styles/*"],
+      "@/providers/*": ["./providers/*"],
       "@/components/*": ["./components/*"],
       "@/features/*": ["./features/*"],
       "@/layouts/*": ["./layouts/*"],
@@ -39,6 +39,11 @@
       "@your-org/ts-utils": ["../../../packages/ts-utils/src/index"],
     },
     "types": ["vitest/globals", "@testing-library/jest-dom/vitest"],
+    "plugins": [
+      {
+        "name": "next",
+      },
+    ],
   },
   "exclude": ["**/node_modules", "**/.*/*"],
   "include": [
