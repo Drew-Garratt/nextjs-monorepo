@@ -17173,6 +17173,7 @@ __metadata:
     "@radix-ui/react-slot": "npm:1.0.2"
     "@sentry/nextjs": "npm:7.94.1"
     "@sentry/react": "npm:7.94.1"
+    "@size-limit/file": "npm:11.0.2"
     "@types/cors": "npm:2.8.17"
     "@types/is-ci": "npm:3.0.4"
     "@types/negotiator": "npm:0.6.3"
