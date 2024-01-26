@@ -37,6 +37,10 @@ const schema = {
     .string()
     .default(isProd ? new Date().toISOString().replace(':', '_') : ''),
   // --------------------------------------------------------------------
+  // MSW (mock service worker) related
+  // --------------------------------------------------------------------
+  NEXT_BUILD_ENV_MSW_ENABLED: zConvertTruthyStrToBool(false),
+  // --------------------------------------------------------------------
   // Sentry related
   // --------------------------------------------------------------------
   NEXT_BUILD_ENV_SENTRY_ENABLED: zConvertTruthyStrToBool(false),

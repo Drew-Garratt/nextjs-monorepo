@@ -78,6 +78,8 @@
     "eslint": "8.56.0",
     "eslint-config-next": "14.1.0",
     "eslint-plugin-tailwindcss": "3.14.0",
+    "msw": "2.1.4",
+    "playwright-msw": "3.0.1",
     "postcss": "8.4.33",
     "postcss-flexbugs-fixes": "5.0.2",
     "postcss-preset-env": "9.3.0",

@@ -14,6 +14,7 @@
     "jsx": "preserve",
     "paths": {
       "@/test-utils": ["../config/tests/test-utils"],
+      "@/mocks/*": ["../e2e/mocks/*"],
       "@/config/*": ["./config/*"],
       "@/lib/*": ["./lib/*"],
       "@/types/*": ["./types/*"],
