@@ -5,7 +5,18 @@ import Link from 'next/link';
 import { buttonVariants } from '@/components/ui/button';
 import { siteConfig } from '@/config/site';
 
-export default function IndexPage() {
+export type User = {
+  firstName: string;
+  lastName: string;
+};
+
+async function getUser() {
+  const response = await fetch('https://api.example.com/user');
+  return (await response.json()) as User;
+}
+
+export default async function IndexPage() {
+  const user = await getUser();
   return (
     <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-2">
@@ -15,6 +26,9 @@ export default function IndexPage() {
             built with Radix UI and Tailwind CSS.
           </Trans>
         </h1>
+        <p>
+          {user.firstName} {user.lastName}
+        </p>
         <p className="max-w-[700px] text-lg text-muted-foreground">
           Accessible and customizable components that you can copy and paste
           into your apps. Free. Open Source. And Next.js 13 Ready.

@@ -207,6 +207,7 @@ const nextConfig = {
     : {}),
 
   experimental: {
+    instrumentationHook: true,
     // @link https://nextjs.org/docs/advanced-features/output-file-tracing#caveats
     ...(buildEnv.NEXT_BUILD_ENV_OUTPUT === 'standalone'
       ? { outputFileTracingRoot: workspaceRoot }
@@ -349,6 +350,24 @@ const nextConfig = {
 
     // Modify the file loader rule to ignore *.svg, since we have it handled now.
     fileLoaderRule.exclude = /\.svg$/i;
+    /**
+     * @fixme This is completely redundant. webpack should understand
+     * export conditions and don't try to import "msw/browser" code
+     * that's clearly marked as client-side only in the app.
+     */
+    if (isServer) {
+      if (Array.isArray(config.resolve.alias)) {
+        config.resolve.alias.push({ name: 'msw/browser', alias: false });
+      } else {
+        config.resolve.alias['msw/browser'] = false;
+      }
+    } else {
+      if (Array.isArray(config.resolve.alias)) {
+        config.resolve.alias.push({ name: 'msw/node', alias: false });
+      } else {
+        config.resolve.alias['msw/node'] = false;
+      }
+    }
 
     return config;
   },
